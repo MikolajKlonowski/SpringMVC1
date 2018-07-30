@@ -18,12 +18,17 @@ public class KontrolerKoszyka {
 
 
     @PostMapping("/addItem")
+    public String add(@RequestParam int ilosc, @RequestParam String nazwa) {
+//        System.out.println(ilosc);
+        System.out.println(nazwa+nazwa+nazwa+ilosc+ilosc+ilosc+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        Produkt produkt1 = repozytoriumProduktowe.findByName(nazwa);
+//        kosz=repozytoriumProduktowe.addNewList(produkt,ilosc);
 
-    public String add(@RequestPart int ilosc, @RequestParam String nazwa) {
-        System.out.println(ilosc);
+        kosz.put(produkt1, ilosc);
 
-        Produkt produkt = repozytoriumProduktowe.findByName(nazwa);
-        kosz.put(produkt, ilosc);
+
+
+
         return "/redirect:/koszyk";
 
     }

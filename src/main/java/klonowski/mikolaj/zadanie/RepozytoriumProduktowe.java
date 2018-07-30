@@ -4,7 +4,9 @@ import org.springframework.stereotype.Repository;
 
 import javax.validation.constraints.Max;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class RepozytoriumProduktowe {
@@ -27,12 +29,22 @@ public class RepozytoriumProduktowe {
     }
 
     public Produkt findByName(String nazwa) {
+
+Produkt a = null ;
         for (Produkt produkt : listaProduktow) {
-            if (produkt.getNazwa() == nazwa) {
-                return produkt;
+            if (produkt.getNazwa().equals(nazwa)) {
+            a = produkt;
             }
 
+
         }
-        return null;
+        return a;
     }
+//    public Map<Produkt, Integer> addNewList(Produkt produkt, Integer ilosc){
+//        Map<Produkt, Integer> kosz = new HashMap<>();
+//        kosz.put(produkt, ilosc);
+//        return kosz;
+//
+//
+//    }
 }

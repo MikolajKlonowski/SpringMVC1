@@ -12,8 +12,8 @@
     <h3 th:text="${produkt.cena} + zł"></h3>
     <img th:src="${produkt.url}" height="100px"></img>
 <form action="/addItem" method="post" >
-    <input type="text" th:value="${produkt.nazwa}" th:name="nazwa" hidden name="nazwa"/>
-    Liczba:<input type="number" name="ilosc" min="0"/><br>
+    <input type="text" th:value="${produkt.nazwa}" hidden th:name="nazwa"/>
+    Liczba:<input type="number" th:name="ilosc" min="0"/><br>
     <input type="submit"  th:value="Dodaj"/>
 
 
