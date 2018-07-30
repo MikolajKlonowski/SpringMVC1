@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Piekarnia</title>
+</head>
+<body>
+<h1>Piekarnia</h1>
+<p>Dodaj produkty</p>
+<div th:each="produkt: ${produkty} " style="background: rebeccapurple">
+    <h3 th:text="${produkt.nazwa}"></h3>
+    <h3 th:text="${produkt.cena} + zł"></h3>
+    <img th:src="${produkt.url}" height="100px"></img>
+<form action="/addItem" method="post" >
+    <input type="text" th:value="${produkt.nazwa}" th:name="nazwa" hidden name="nazwa"/>
+    Liczba:<input type="number" name="ilosc" min="0"/><br>
+    <input type="submit"  th:value="Dodaj"/>
+
+
+</form>
+
+
+</div>
+
+
+</body>
+</html>
